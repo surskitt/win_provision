@@ -18,7 +18,7 @@ if "%ERRORLEVEL%"=="1" %SCANNER% --add-section TV --type 2 --location E:\Video\T
 
 if "%ERRORLEVEL%"=="0" echo Film section already added
 %SCANNER% -l 2>NUL | find /I /N "Film">NUL
-if "%ERRORLEVEL%"=="1" %SCANNER% --add-section Film --type 2 --location E:\Video\Film
+if "%ERRORLEVEL%"=="1" %SCANNER% --add-section Film --type 1 --location E:\Video\Film
 
 set /p temp="Hit enter to continue"
 :FIN

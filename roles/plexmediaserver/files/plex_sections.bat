@@ -12,13 +12,13 @@ set SCANNER="C:\Program Files (x86)\Plex\Plex Media Server\Plex Media Scanner.ex
 if "%ERRORLEVEL%"=="0" echo Anime section already added
 if "%ERRORLEVEL%"=="1" %SCANNER% --add-section Anime --type 2 --location E:\Video\Anime
 
-if "%ERRORLEVEL%"=="0" echo TV section already added
 %SCANNER% -l 2>NUL | find /I /N "TV">NUL
+if "%ERRORLEVEL%"=="0" echo TV section already added
 if "%ERRORLEVEL%"=="1" %SCANNER% --add-section TV --type 2 --location E:\Video\TV
 
-if "%ERRORLEVEL%"=="0" echo Film section already added
-%SCANNER% -l 2>NUL | find /I /N "Film">NUL
-if "%ERRORLEVEL%"=="1" %SCANNER% --add-section Film --type 1 --location E:\Video\Film
+%SCANNER% -l 2>NUL | find /I /N "Films">NUL
+if "%ERRORLEVEL%"=="0" echo Films section already added
+if "%ERRORLEVEL%"=="1" %SCANNER% --add-section Films --type 1 --location E:\Video\Films
 
 set /p temp="Hit enter to continue"
 :FIN

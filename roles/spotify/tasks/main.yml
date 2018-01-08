@@ -1,0 +1,6 @@
+---
+# tasks file for spotify
+# - name: Install spotify
+  # win_chocolatey:
+    # name: spotify
+    # state: present

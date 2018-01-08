@@ -33,3 +33,5 @@
 
 - name: Install fonts
   script: Add-Font.ps1 {{nerdfont_dir.path}}
+  ignore_errors: true
+  no_log: true

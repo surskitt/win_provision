@@ -1,6 +1,6 @@
 ---
 # tasks file for vlc
-- name: Install 7zip
+- name: Install vlc
   win_chocolatey:
-    name: 7zip
+    name: vlc
     state: present

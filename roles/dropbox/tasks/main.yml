@@ -1,6 +1,6 @@
 ---
 # tasks file for dropbox
-- name: Install 7zip
+- name: Install dropbox
   win_chocolatey:
-    name: 7zip
+    name: dropbox
     state: present

@@ -1,6 +1,6 @@
 ---
 # tasks file for steam
-- name: Install 7zip
+- name: Install steam
   win_chocolatey:
-    name: 7zip
+    name: steam
     state: present

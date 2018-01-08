@@ -1,6 +1,6 @@
 ---
 # tasks file for paint.net
-- name: Install 7zip
+- name: Install paint.net
   win_chocolatey:
-    name: 7zip
+    name: paint.net
     state: present

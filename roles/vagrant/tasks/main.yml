@@ -1,6 +1,6 @@
 ---
 # tasks file for vagrant
-- name: Install 7zip
+- name: Install vagrant
   win_chocolatey:
-    name: 7zip
+    name: vagrant
     state: present

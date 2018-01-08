@@ -3,7 +3,7 @@
 
   roles:
     # - 7zip
-    # - autohotkey
+    - autohotkey
     # - avidemux
     # - cccp
     # - citrix-receiver
@@ -26,8 +26,10 @@
     # - putty
     # - qttabbar
     # - radarr
+    # - rainmeter
     # - sabnzbd
     # - sonarr
+    # - spotify
     # - steam
     # - teracopy
     # - transmission
@@ -35,21 +37,6 @@
     # - vidcutter
     # - virtualbox
     # - vlc
+    # - whatsapp
     # - windirstat
-    - wsltty
-
-    # - name: Create uninstallable app dir
-      # win_file:
-        # path: C:\installers
-        # state: directory
-
-    # - name: Download uninstallable apps
-      # win_get_url:
-        # url: "{{item.url}}"
-        # dest: C:\installers\{{item.filename}}
-      # with_items:
-        # - { url: "http://windowbox.me/multiwall/download.php?id=MultiWall-1.0.31-Setup.exe", filename: MultiWall-1.0.31-Setup.exe}
-        # - { url: "http://www.1upindustries.com/BinsSetup.exe", filename: BinsSetup.exe}
-        # - { url: "https://github.com/rainmeter/rainmeter/releases/download/v4.2.0.3018/Rainmeter-4.2-r3018-beta.exe", filename: Rainmeter-4.2-r3018-beta.exe}
-      # loop_control:
-        # label: "{{item.filename}}"
+    # - wsltty

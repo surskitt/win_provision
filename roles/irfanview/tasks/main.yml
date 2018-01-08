@@ -1,6 +1,6 @@
 ---
 # tasks file for irfanview
-- name: Install 7zip
+- name: Install irfanview
   win_chocolatey:
-    name: 7zip
+    name: irfanview
     state: present

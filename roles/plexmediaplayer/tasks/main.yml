@@ -1,6 +1,6 @@
 ---
 # tasks file for plexmediaplayer
-- name: Install 7zip
+- name: Install plexmediaplayer
   win_chocolatey:
-    name: 7zip
+    name: plexmediaplayer
     state: present

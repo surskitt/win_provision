@@ -1,6 +1,6 @@
 ---
 # tasks file for transmission
-- name: Install 7zip
+- name: Install transmission
   win_chocolatey:
-    name: 7zip
+    name: transmission
     state: present

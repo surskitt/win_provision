@@ -1,6 +1,6 @@
 ---
 # tasks file for comicrack
-- name: Install 7zip
+- name: Install comicrack
   win_chocolatey:
-    name: 7zip
+    name: comicrack
     state: present

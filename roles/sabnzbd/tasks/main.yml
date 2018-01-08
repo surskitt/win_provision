@@ -1,6 +1,6 @@
 ---
 # tasks file for sabnzbd
-- name: Install 7zip
+- name: Install sabnzbd
   win_chocolatey:
-    name: 7zip
+    name: sabnzbd
     state: present

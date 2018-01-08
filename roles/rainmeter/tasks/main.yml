@@ -1,2 +1,32 @@
 ---
 # tasks file for rainmeter
+- name: Create installers dir
+  win_file:
+    path: C:\installers
+    state: directory
+
+- name: Download rainmeter installer and spotify plugin
+  win_get_url:
+    url: "{{item.url}}"
+    dest: C:\installers\{{item.filename}}
+  with_items:
+    - { url: "https://github.com/rainmeter/rainmeter/releases/download/v4.2.0.3018/Rainmeter-4.2-r3018-beta.exe",
+        filename: Rainmeter-4.2-r3018-beta.exe }
+    - { url: "https://forum.rainmeter.net/download/file.php?id=15328",
+        filename: "SpotifyPlugin_1.9.3.0.rmskin" }
+  loop_control:
+    label: "{{item.filename}}"
+
+- name: Copy rainmeter appdata files
+  win_copy:
+    src: AppData/
+    dest: '%appdata%/Rainmeter'
+
+- name: Create skins dir
+  win_file:
+    path: '%userprofile%/Documents/Rainmeter'
+
+- name: Copy rainmeter skins
+  win_copy:
+    src: Skins
+    dest: '%userprofile%/documents/Rainmeter'

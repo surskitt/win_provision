@@ -1,6 +1,6 @@
 ---
 # tasks file for googlechrome
-- name: Install 7zip
+- name: Install chrome
   win_chocolatey:
-    name: 7zip
+    name: googlechrome
     state: present

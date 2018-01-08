@@ -1,6 +1,6 @@
 ---
 # tasks file for depressurizer
-- name: Install 7zip
+- name: Install depressurizer
   win_chocolatey:
-    name: 7zip
+    name: depressurizer
     state: present

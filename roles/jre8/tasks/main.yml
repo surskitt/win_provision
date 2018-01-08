@@ -1,6 +1,6 @@
 ---
 # tasks file for jre8
-- name: Install 7zip
+- name: Install jre8
   win_chocolatey:
-    name: 7zip
+    name: jre8
     state: present

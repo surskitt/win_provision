@@ -3,3 +3,32 @@
   win_chocolatey:
     name: autohotkey
     state: present
+
+- name: Create ahk dir
+  win_file:
+    path: '%userprofile%/ahk'
+    state: directory
+
+- name: Install extra.ahk script
+  win_copy:
+    src: extra.ahk
+    dest: '%userprofile%/ahk/extra.ahk'
+
+- name: Download autocorrect ahk script to ahk dir
+  win_get_url:
+    url: https://gist.githubusercontent.com/endolith/876629/raw/b917e945bb3f750d626b612e36101a4bc6beb29d/AutoCorrect.ahk
+    dest: '%userprofile%/ahk/'
+
+- name: Comment icon setting line in autocorrect script
+  win_lineinfile:
+    path: '%userprofile%/ahk/AutoCorrect.ahk'
+    regexp: "Menu, Tray, Icon, text_replace.ico"
+    line: "; Menu, Tray, Icon, text_replace.ico"
+
+- name: Add ahk scripts to startup
+  win_shortcut:
+    src: '%userprofile%/ahk/{{item}}'
+    dest: '%appdata%/Microsoft/Windows/Start Menu/Programs/Startup/{{item}}.lnk'
+  with_items:
+    - extra.ahk
+    - AutoCorrect.ahk

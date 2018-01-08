@@ -1,6 +1,6 @@
 ---
 # tasks file for sonarr
-- name: Install 7zip
+- name: Install sonarr
   win_chocolatey:
-    name: 7zip
+    name: sonarr
     state: present

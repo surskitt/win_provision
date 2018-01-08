@@ -1,6 +1,6 @@
 ---
 # tasks file for putty
-- name: Install 7zip
+- name: Install putty
   win_chocolatey:
-    name: 7zip
+    name: putty
     state: present

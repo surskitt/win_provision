@@ -1,6 +1,6 @@
 ---
 # tasks file for foobar2000
-- name: Install 7zip
+- name: Install foobar2000
   win_chocolatey:
-    name: 7zip
+    name: foobar2000
     state: present

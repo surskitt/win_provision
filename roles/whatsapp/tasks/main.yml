@@ -1,0 +1,6 @@
+---
+# tasks file for whatsapp
+- name: Install whatsapp
+  win_chocolatey:
+    name: whatsapp
+    state: present

@@ -4,3 +4,45 @@
   win_chocolatey:
     name: plexmediaserver
     state: present
+
+- name: Create temp dir
+  win_tempfile:
+    state: directory
+    suffix: plex
+  register: plextemp
+
+- name: Download plex trakt plugin
+  win_get_url:
+    url: https://github.com/trakt/Plex-Trakt-Scrobbler/archive/master.zip
+    dest: "{{plextemp.path}}/Plex-Trakt-Scrobbler-master.zip"
+
+- name: Extract trakt plugin zip
+  win_unzip:
+    src: "{{plextemp.path}}/Plex-Trakt-Scrobbler-master.zip"
+    dest: "{{plextemp.path}}"
+    delete_archive: yes
+
+- name: Create plex plug-ins dir in appdata
+  win_file:
+    path: '%localappdata%/Plex Media Server/Plug-ins'
+    state: directory
+
+- name: Copy trakt plugin to plugins-dir
+  win_copy:
+    src: "{{plextemp.path}}/Plex-Trakt-Scrobbler-master/Trakttv.bundle"
+    dest: '%localappdata%/Plex Media Server/Plug-ins/'
+    remote_src: true
+
+- name: Transfer registry file to temp dir
+  win_copy:
+    src: plex.reg
+    dest: "{{plextemp.path}}/"
+
+- name: Apply registry changes
+  win_regmerge:
+    path: "{{plextemp.path}}/plex.reg"
+
+- name: Copy plex location adding script to installers
+  win_copy:
+    src: plex_sections.bat
+    dest: "C:/Installers/"

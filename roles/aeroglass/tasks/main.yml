@@ -1,0 +1,7 @@
+---
+# tasks file for aeroglass
+- name: Install aeroglass
+  win_package:
+    path: http://www.glass8.eu/files/setup-wrs-1.5.7.exe
+    product_id: 'glass8'
+    arguments: /verysilent /norestart

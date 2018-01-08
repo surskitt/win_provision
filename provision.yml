@@ -1,0 +1,55 @@
+---
+- hosts: windows
+
+  roles:
+    # - 7zip
+    # - autohotkey
+    # - avidemux
+    # - cccp
+    # - citrix-receiver
+    # - clink
+    # - comicrack
+    # - depressurizer
+    # - divvy
+    # - dropbox
+    # - foobar2000
+    # - googlechrome
+    # - greenshot
+    # - irfanview
+    # - jre8
+    # - linkshellextension
+    # - mp3tag
+    # - notepadplusplus
+    # - paint.net
+    # - plexmediaserver
+    # - plexmediaplayer
+    # - putty
+    # - qttabbar
+    # - radarr
+    # - sabnzbd
+    # - sonarr
+    # - steam
+    # - teracopy
+    # - transmission
+    # - vagrant
+    # - vidcutter
+    # - virtualbox
+    # - vlc
+    # - windirstat
+    - wsltty
+
+    # - name: Create uninstallable app dir
+      # win_file:
+        # path: C:\installers
+        # state: directory
+
+    # - name: Download uninstallable apps
+      # win_get_url:
+        # url: "{{item.url}}"
+        # dest: C:\installers\{{item.filename}}
+      # with_items:
+        # - { url: "http://windowbox.me/multiwall/download.php?id=MultiWall-1.0.31-Setup.exe", filename: MultiWall-1.0.31-Setup.exe}
+        # - { url: "http://www.1upindustries.com/BinsSetup.exe", filename: BinsSetup.exe}
+        # - { url: "https://github.com/rainmeter/rainmeter/releases/download/v4.2.0.3018/Rainmeter-4.2-r3018-beta.exe", filename: Rainmeter-4.2-r3018-beta.exe}
+      # loop_control:
+        # label: "{{item.filename}}"

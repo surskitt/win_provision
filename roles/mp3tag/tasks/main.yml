@@ -1,0 +1,6 @@
+---
+# tasks file for mp3tag
+- name: Install 7zip
+  win_chocolatey:
+    name: 7zip
+    state: present

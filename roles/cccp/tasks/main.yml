@@ -1,0 +1,6 @@
+---
+# tasks file for cccp
+- name: Install cccp
+  win_chocolatey:
+    name: cccp
+    state: present

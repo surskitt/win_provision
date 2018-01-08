@@ -1,0 +1,5 @@
+---
+- name: Install autohotkey
+  win_chocolatey:
+    name: autohotkey
+    state: present

@@ -1,0 +1,6 @@
+---
+# tasks file for avidemux
+- name: Install avidemux
+  win_chocolatey:
+    name: avidemux
+    state: present

@@ -1,0 +1,35 @@
+---
+# tasks file for wsltty
+- name: Get APPDATA path
+  win_shell: echo $env:APPDATA
+  register: appdata_out
+
+- name: Create mintty config dir
+  win_file:
+    path: "{{appdata_out.stdout_lines[0]}}/mintty"
+    state: directory
+
+- name: Copy wsltty config
+  win_copy:
+    src: config
+    dest: "{{appdata_out.stdout_lines[0]}}/mintty/config"
+
+- name: Create temporary dir for fonts
+  win_tempfile:
+    state: directory
+    suffix: nerdfont
+  register: nerdfont_dir
+
+- name: Download fonts
+  win_get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/SourceCodePro.zip
+    dest: "{{nerdfont_dir.path}}"
+
+- name: Unzip fonts
+  win_unzip:
+    src: "{{nerdfont_dir.path}}/SourceCodePro.zip"
+    dest: "{{nerdfont_dir.path}}"
+    delete_archive: yes
+
+- name: Install fonts
+  script: Add-Font.ps1 {{nerdfont_dir.path}}

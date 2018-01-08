@@ -1,0 +1,6 @@
+---
+# tasks file for citrix-receiver
+- name: Install citrix-receiver
+  win_chocolatey:
+    name: citrix-receiver
+    state: present

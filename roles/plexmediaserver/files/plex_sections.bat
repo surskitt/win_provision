@@ -20,5 +20,5 @@ if "%ERRORLEVEL%"=="1" %SCANNER% --add-section TV --type 2 --location E:\Video\T
 if "%ERRORLEVEL%"=="0" echo Films section already added
 if "%ERRORLEVEL%"=="1" %SCANNER% --add-section Films --type 1 --location E:\Video\Films
 
-set /p temp="Hit enter to continue"
 :FIN
+set /p temp="Hit enter to continue"

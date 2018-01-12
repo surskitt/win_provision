@@ -4,3 +4,11 @@
   win_chocolatey:
     name: googlechrome
     state: present
+
+- name: Add chrome to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Google Chrome'
+    executable: '%programfiles(x86)%\Google\Chrome\Application\chrome.exe'
+    icon: chrome.ico

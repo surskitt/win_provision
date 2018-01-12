@@ -1,2 +1,16 @@
 ---
 # tasks file for divvy
+- name: Create temp dir
+  win_tempfile:
+    state: directory
+    suffix: divvy
+  register: divvytemp
+
+- name: Transfer registry file to temp dir
+  win_copy:
+    src: divvy.reg
+    dest: "{{divvytemp.path}}/"
+
+- name: Apply registry changes
+  win_regmerge:
+    path: "{{divvytemp.path}}/divvy.reg"

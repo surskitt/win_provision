@@ -1,0 +1,21 @@
+---
+# tasks file for taskbar
+- name: Create ~/.icons
+  win_file:
+    path: '%userprofile%\.icons'
+    state: directory
+
+- name: Create ~/Apps
+  win_file:
+    path: '%userprofile%\Apps'
+    state: directory
+
+- name: Install syspin executable
+  win_get_url:
+    url: 'http://www.technosys.net/download.aspx?file=syspin.exe'
+    dest: '%userprofile%\Apps\syspin.exe'
+    force: false
+
+- name: Mark role as executed
+  set_fact:
+    taskbar_run: true

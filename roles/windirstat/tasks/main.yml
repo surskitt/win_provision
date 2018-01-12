@@ -4,3 +4,11 @@
   win_chocolatey:
     name: windirstat
     state: present
+
+- name: Add windirstat to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Windows Directory Statistics'
+    executable: '%programfiles(x86)%\WinDirStat\windirstat.exe'
+    icon: windirstat.ico

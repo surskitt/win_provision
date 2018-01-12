@@ -4,3 +4,11 @@
   win_chocolatey:
     name: irfanview
     state: present
+
+- name: Add irfanview to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'IrfanView 64-bit'
+    executable: '%programfiles%\IrfanView\i_view64.exe'
+    icon: irfanview.ico

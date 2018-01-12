@@ -4,3 +4,11 @@
   win_chocolatey:
     name: comicrack
     state: present
+
+- name: Add comicrack to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: ComicRack
+    executable: '%programfiles%\ComicRack\ComicRack.exe'
+    icon: comicrack.ico

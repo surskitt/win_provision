@@ -1,6 +1,17 @@
 ---
 # tasks file for spotify
-# - name: Install spotify
-  # win_chocolatey:
-    # name: spotify
-    # state: present
+- name: Remove pre-installed spotify windows store app
+  win_shell: Get-AppxPackage *Spotify*|Remove-AppxPackage
+
+- name: Install spotify
+  win_chocolatey:
+    name: spotify
+    state: present
+
+- name: Add spotify to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: Spotify
+    executable: '%appdata%\Spotify\Spotify.exe'
+    icon: spotify.ico

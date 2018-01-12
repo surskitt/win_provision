@@ -1,6 +1,14 @@
 ---
 # tasks file for notepadplusplus
-- name: Install notepadplusplus
+- name: Install notepad++
   win_chocolatey:
     name: notepadplusplus
     state: present
+
+- name: Add notepad++ to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Notepad++'
+    executable: '%programfiles%\Notepad++\notepad++.exe'
+    icon: notepadpp.ico

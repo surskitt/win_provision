@@ -4,3 +4,21 @@
   win_chocolatey:
     name: vlc
     state: present
+
+- name: Add vlc to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'VLC media player'
+    executable: '%programfiles%\VideoLan\VLC\vlc.exe'
+    icon: vlc.ico
+
+- name: Create vlc appdata dir
+  win_file:
+    path: '%appdata%\vlc'
+    state: directory
+
+- name: Copy vlcrc file to appdata
+  win_copy:
+    src: vlcrc
+    dest: '%appdata%\vlc\vlcrc'

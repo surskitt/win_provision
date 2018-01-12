@@ -4,3 +4,11 @@
   win_chocolatey:
     name: virtualbox
     state: present
+
+- name: Add virtualbox to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Oracle VM VirtualBox'
+    executable: '%programfiles%\Oracle\VirtualBox\VirtualBox.exe'
+    icon: virtualbox.ico

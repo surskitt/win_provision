@@ -4,3 +4,21 @@
   win_chocolatey:
     name: foobar2000
     state: present
+
+- name: Copy config to appdata
+  win_copy:
+    src: appdata/
+    dest: '%appdata%/foobar2000'
+
+- name: Copy skins to program files dir
+  win_copy:
+    src: programfiles/skins/
+    dest: '%programfiles(x86)%/foobar2000/skins'
+
+- name: Add foobar2000 to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: foobar2000
+    executable: '%programfiles(x86)%\foobar2000\foobar2000.exe'
+    icon: foobar2000.ico

@@ -2,41 +2,46 @@
 - hosts: windows
 
   roles:
-    # - 7zip
+    - 7zip
     - autohotkey
-    # - avidemux
-    # - cccp
-    # - citrix-receiver
-    # - clink
-    # - comicrack
-    # - depressurizer
-    # - divvy
-    # - dropbox
-    # - foobar2000
-    # - googlechrome
-    # - greenshot
-    # - irfanview
-    # - jre8
-    # - linkshellextension
-    # - mp3tag
-    # - notepadplusplus
-    # - paint.net
-    # - plexmediaserver
-    # - plexmediaplayer
-    # - putty
-    # - qttabbar
-    # - radarr
-    # - rainmeter
-    # - sabnzbd
-    # - sonarr
-    # - spotify
-    # - steam
-    # - teracopy
-    # - transmission
-    # - vagrant
-    # - vidcutter
-    # - virtualbox
-    # - vlc
-    # - whatsapp
-    # - windirstat
-    # - wsltty
+    - avidemux
+    - cccp
+    - citrix-receiver
+    - clink
+    - comicrack
+    - depressurizer
+    - divvy
+    - dropbox
+    - foobar2000
+    - googlechrome
+    - greenshot
+    - irfanview
+    - jackett
+    - jre8
+    - linkshellextension
+    - mp3tag
+    - multiwall
+    - notepadplusplus
+    - paint.net
+    - plexmediaserver
+    - plexmediaplayer
+    - putty
+    - qttabbar
+    - radarr
+    - rainmeter
+    - sabnzbd
+    - sonarr
+    - spotify
+    - steam
+    - teracopy
+    - transmission
+    - vagrant
+    - vidcutter
+    - virtualbox
+    - vlc
+    - weechat
+    - whatsapp
+    - windirstat
+    - windows
+    - wsltty
+    - .actions/restart_taskbar

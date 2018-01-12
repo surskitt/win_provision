@@ -1,2 +1,17 @@
 ---
 # tasks file for windows
+- name: Add cmd to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: Command Prompt
+    executable: '%windir%\system32\cmd.exe'
+    icon: cmd.ico
+
+- name: Add powershell to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Windows PowerShell'
+    executable: '%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe'
+    icon: powershell.ico

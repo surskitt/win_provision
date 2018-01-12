@@ -1,2 +1,10 @@
 ---
 # tasks file for weechat
+- name: Add wsltty to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Terminal (2)'
+    executable: '%localappdata%\wsltty\bin\mintty.exe'
+    extra_args: '--WSL= -h err --configdir="%APPDATA%\wsltty" -~ -s 67,54 -p 20,25 -- zsh -c ~/.local/bin/_weechat'
+    icon: weechat.ico

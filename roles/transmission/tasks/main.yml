@@ -4,3 +4,21 @@
   win_chocolatey:
     name: transmission
     state: present
+
+- name: Create transmission appdata dir
+  win_file:
+    path: '%localappdata%\transmission'
+    state: directory
+
+- name: Copy settings.json file to appdata
+  win_copy:
+    src: settings.json
+    dest: '%localappdata%\transmission\settings.json'
+
+- name: Add transmission to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Transmission Qt Client'
+    executable: '%programfiles(x86)%\Transmission\transmission-qt.exe'
+    icon: transmission.ico

@@ -1,5 +1,15 @@
 ---
 # tasks file for sabnzbd
+- name: Create sabnzbd appdata dir
+  win_file:
+    path: '%localappdata%\sabnzbd'
+    state: directory
+
+- name: Copy sabnzbd.ini to appdata
+  win_copy:
+    src: sabnzbd.ini
+    dest: '%localappdata%\sabnzbd\sabnzbd.ini'
+
 - name: Install sabnzbd
   win_chocolatey:
     name: sabnzbd

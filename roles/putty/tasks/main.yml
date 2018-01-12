@@ -4,3 +4,11 @@
   win_chocolatey:
     name: putty
     state: present
+
+- name: Add putty to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'SSH, Telnet and Rlogin client'
+    executable: 'C:\ProgramData\chocolatey\lib\putty.portable\tools\PUTTY.EXE'
+    icon: putty.ico

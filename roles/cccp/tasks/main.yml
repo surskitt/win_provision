@@ -4,3 +4,26 @@
   win_chocolatey:
     name: cccp
     state: present
+
+- name: Add media player classic to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'MPC-HC 64-bit'
+    executable: '%programfiles%\Combined Community Codec Pack 64bit\MPC\mpc-hc64.exe'
+    icon: mpc.ico
+
+- name: Create temp dir
+  win_tempfile:
+    state: directory
+    suffix: cccp
+  register: cccptemp
+
+- name: Transfer registry file to temp dir
+  win_copy:
+    src: mpc.reg
+    dest: "{{cccptemp.path}}/"
+
+- name: Apply registry changes
+  win_regmerge:
+    path: "{{cccptemp.path}}/mpc.reg"

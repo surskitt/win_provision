@@ -4,3 +4,11 @@
   win_chocolatey:
     name: whatsapp
     state: present
+
+- name: Add whatsapp to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'WhatsApp'
+    executable: '%localappdata%\WhatsApp\WhatsApp.exe'
+    icon: whatsapp.ico

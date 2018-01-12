@@ -1,0 +1,6 @@
+---
+# tasks file for jackett
+- name: Install jackett
+  win_chocolatey:
+    name: jackett
+    state: present

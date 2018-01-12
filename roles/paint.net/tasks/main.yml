@@ -4,3 +4,11 @@
   win_chocolatey:
     name: paint.net
     state: present
+
+- name: Add paint.net to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'paint'
+    executable: '%programfiles%\paint.net\PaintDotNet.exe'
+    icon: paint.net.ico

@@ -1,0 +1,18 @@
+---
+# tasks file for add_to_taskbar
+- name: Add taskbar shortcut using syspin
+  win_shell: '%userprofile%\Apps\syspin.exe "{{executable}}" c:"Pin to taskbar"'
+  args:
+    executable: cmd
+
+- name: Copy taskbar icon
+  win_copy:
+    src: "{{icon}}"
+    dest: '%userprofile%\.icons\{{icon}}'
+
+- name: Change shortcut icon
+  win_shortcut:
+    src: "{{executable}}"
+    args: "{{extra_args|default(omit)}}"
+    dest: '%appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\{{link_name}}.lnk'
+    icon: '%userprofile%\.icons\{{icon}}'

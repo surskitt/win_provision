@@ -1,5 +1,20 @@
 ---
 # tasks file for sonarr
+- name: Create nzbdrone programdata dir
+  win_file:
+    path: 'C:\ProgramData\NzbDrone'
+    state: directory
+
+- name: Copy nzbdrone.db
+  win_copy:
+    src: nzbdrone.db
+    dest: C:\ProgramData\NzbDrone\nzbdrone.db
+
+- name: Copy config.xml
+  win_copy:
+    src: config.xml
+    dest: C:\ProgramData\NzbDrone\config.xml
+
 - name: Install sonarr
   win_chocolatey:
     name: sonarr

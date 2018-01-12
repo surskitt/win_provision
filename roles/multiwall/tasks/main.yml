@@ -1,2 +1,19 @@
 ---
 # tasks file for multiwall
+- name: Create installers dir
+  win_file:
+    path: C:\installers
+    state: directory
+
+- name: Download multiwall installer
+  win_get_url:
+    url: "http://windowbox.me/multiwall/download.php?id=MultiWall-1.0.31-Setup.exe"
+    dest: C:\installers\MultiWall-1.0.31-Setup.exe
+
+- name: Add multiwall to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'MultiWall'
+    executable: '%programfiles(x86)%\MultiWall\MultiWall.exe'
+    icon: multiwall.ico

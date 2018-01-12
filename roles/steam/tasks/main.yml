@@ -4,3 +4,11 @@
   win_chocolatey:
     name: steam
     state: present
+
+- name: Add steam to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Steam'
+    executable: '%programfiles(x86)%\Steam\Steam.exe'
+    icon: steam.ico

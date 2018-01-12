@@ -1,0 +1,11 @@
+---
+# tasks file for restart_taskbar
+- name: Kill taskbar process
+  win_shell: 'taskkill /f /im explorer.exe'
+  args:
+    executable: cmd
+
+- name: Restart taskbar process
+  win_shell: 'start explorer.exe'
+  args:
+    executable: cmd

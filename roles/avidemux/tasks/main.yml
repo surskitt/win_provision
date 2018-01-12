@@ -4,3 +4,11 @@
   win_chocolatey:
     name: avidemux
     state: present
+
+- name: Add spotify to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Avidemux 2.7'
+    executable: '%programfiles%\Avidemux 2.7 - 64 bits\avidemux.exe'
+    icon: avidemux.ico

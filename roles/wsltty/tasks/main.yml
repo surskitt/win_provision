@@ -1,18 +1,24 @@
 ---
 # tasks file for wsltty
-- name: Get APPDATA path
-  win_shell: echo $env:APPDATA
-  register: appdata_out
+- name: Create installers dir
+  win_file:
+    path: C:\installers
+    state: directory
+
+- name: Download wsltty installer
+  win_get_url:
+    url: "https://github.com/mintty/wsltty/releases/download/1.8.3.2/wsltty-1.8.3.2-install.exe"
+    dest: C:\installers\wsltty-1.8.3.2-install.exe
 
 - name: Create mintty config dir
   win_file:
-    path: "{{appdata_out.stdout_lines[0]}}/mintty"
+    path: "%appdata%/mintty"
     state: directory
 
 - name: Copy wsltty config
   win_copy:
     src: config
-    dest: "{{appdata_out.stdout_lines[0]}}/mintty/config"
+    dest: "%appdata%/mintty/config"
 
 - name: Create temporary dir for fonts
   win_tempfile:
@@ -35,3 +41,12 @@
   script: Add-Font.ps1 {{nerdfont_dir.path}}
   ignore_errors: true
   no_log: true
+
+- name: Add wsltty to taskbar
+  include_role:
+    name: .actions/add_to_taskbar
+  vars:
+    link_name: 'Terminal'
+    executable: '%localappdata%\wsltty\bin\mintty.exe'
+    extra_args: '--WSL= -h err --configdir="%APPDATA%\wsltty" -~ -p 1921,0 -w full zsh'
+    icon: wsltty.ico

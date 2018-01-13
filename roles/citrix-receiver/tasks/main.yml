@@ -4,3 +4,18 @@
   win_chocolatey:
     name: citrix-receiver
     state: present
+
+- name: Create temp dir
+  win_tempfile:
+    state: directory
+    suffix: citrix
+  register: citrixtemp
+
+- name: Transfer registry file to temp dir
+  win_copy:
+    src: smartcard.reg
+    dest: "{{citrixtemp.path}}/"
+
+- name: Apply registry changes
+  win_regmerge:
+    path: "{{citrixtemp.path}}/smartcard.reg"
